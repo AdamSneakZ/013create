@@ -604,9 +604,9 @@ img { max-width: 100%; display: block; }
   .nav-links { gap: 28px; }
   .hero { padding: 0; }
   .hero img { height: 36vh; min-height: 200px; object-fit: cover; }
-  .gallery-row { flex-direction: column; }
-  .gallery-row .gallery-item { aspect-ratio: unset; }
-  .gallery-row .gallery-item img { height: auto; object-fit: unset; object-position: unset; }
+  .gallery-row { flex-wrap: wrap; }
+  .gallery-row .gallery-item { flex: 0 0 100%; width: 100%; aspect-ratio: unset; }
+  .gallery-row .gallery-item img { height: auto; object-fit: fill; object-position: initial; }
   .page-wrap { padding: 0 20px; }
   .section-title { font-size: 32px; }
   .photo-page-header { padding: 28px 20px 20px; }
