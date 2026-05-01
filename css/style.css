@@ -203,13 +203,17 @@ img { max-width: 100%; display: block; }
 }
 .gallery-row .gallery-item {
   flex: 1;
+  min-width: 0;
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  aspect-ratio: 16 / 9;
 }
 .gallery-row .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
   display: block;
   transition: transform 0.45s ease;
 }
