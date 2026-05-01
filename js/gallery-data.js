@@ -308,7 +308,7 @@ window.CATEGORY_INFO = {
 window.GALLERY_POSITIONS = {
   "automotive": {
     "16.jpg": "center bottom",
-    "20.jpg": "center top",
+    "20.jpg": "center 60%",
     "26.jpg": "center bottom"
   }
 };
