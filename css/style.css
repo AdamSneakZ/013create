@@ -209,8 +209,7 @@ img { max-width: 100%; display: block; }
 }
 .gallery-row .gallery-item img {
   width: 100%;
-  height: 340px;
-  object-fit: cover;
+  height: auto;
   display: block;
   transition: transform 0.45s ease;
 }
@@ -486,35 +485,60 @@ img { max-width: 100%; display: block; }
   margin-bottom: 14px;
 }
 
-/* ── FOOTER ── */
-footer {
-  padding: 36px 48px;
+/* ── FOOTER — social icons ── */
+.social-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 48px;
   border-top: 1px solid var(--border);
+}
+.social-footer a {
+  color: var(--text-light);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.footer-copy {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-light);
-}
-.footer-social { display: flex; gap: 28px; }
-.footer-social a {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-light);
+  justify-content: center;
   transition: color 0.2s;
 }
-.footer-social a:hover { color: var(--text); }
+.social-footer a:hover { color: var(--text); }
+.social-footer svg { width: 22px; height: 22px; }
+
+/* ── VIDEO FACADE (thumbnail + play button) ── */
+.video-facade {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+  cursor: pointer;
+}
+.video-facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s;
+}
+.video-facade:hover img { opacity: 0.8; }
+.play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 42px;
+  background: #ff0000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.video-facade:hover .play-btn {
+  background: #cc0000;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.play-btn svg { width: 22px; height: 22px; fill: #fff; }
 
 /* ── COOKIE BANNER ── */
 .cookie-banner {

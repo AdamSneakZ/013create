@@ -219,10 +219,7 @@ window.GALLERY_DATA = {
 };
 
 window.GALLERY_ROW_PATTERNS = {
-  "automotive": [
-    3,
-    2
-  ],
+  "automotive": [3,2,3,3,3,3,3,3,3,3,3,3,3,3,3,2,3],
   "hotel-interiors": [
     3
   ],
