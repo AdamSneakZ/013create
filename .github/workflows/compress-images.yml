@@ -1,0 +1,84 @@
+name: Compress Images
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "assets/photos/**"
+      - "assets/thumbnails/**"
+    branches:
+      - main
+
+jobs:
+  compress:
+    name: Compress Images
+    runs-on: ubuntu-latest
+    # Prevent the auto-commit from re-triggering this workflow
+    if: "!contains(github.event.head_commit.message, '[skip compress]')"
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install sharp
+        run: npm install --no-save sharp
+
+      - name: Compress images
+        run: |
+          node << 'JSEOF'
+          const sharp = require("sharp");
+          const fs    = require("fs");
+          const path  = require("path");
+
+          async function processDir(dir) {
+            if (!fs.existsSync(dir)) { console.log("Skip (not found):", dir); return; }
+            for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+              const fp  = path.join(dir, e.name);
+              if (e.isDirectory()) { await processDir(fp); continue; }
+              const ext = e.name.toLowerCase().match(/\.(jpe?g|png|webp)$/);
+              if (!ext) continue;
+              const orig = fs.readFileSync(fp);
+              try {
+                let out;
+                if      (ext[1] === "png")  out = await sharp(orig).png({ quality: 85, compressionLevel: 9 }).toBuffer();
+                else if (ext[1] === "webp") out = await sharp(orig).webp({ quality: 82 }).toBuffer();
+                else                        out = await sharp(orig).jpeg({ quality: 82, progressive: true, mozjpeg: true }).toBuffer();
+
+                if (out.length < orig.length) {
+                  const pct = ((1 - out.length / orig.length) * 100).toFixed(1);
+                  fs.writeFileSync(fp, out);
+                  console.log("Compressed:", fp, "(" + pct + "% smaller)");
+                } else {
+                  console.log("Already optimal:", fp);
+                }
+              } catch (err) {
+                console.error("Error:", fp, err.message);
+              }
+            }
+          }
+
+          (async () => {
+            await processDir("assets/photos");
+            await processDir("assets/thumbnails");
+            console.log("Done.");
+          })();
+          'JSEOF'
+
+      - name: Commit compressed images
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/photos/ assets/thumbnails/
+          if git diff --staged --quiet; then
+            echo "No images needed compression."
+          else
+            git commit -m "Auto-compress images for web [skip compress]"
+            git push
+          fi
