@@ -611,7 +611,33 @@ img { max-width: 100%; display: block; }
   .section-title { font-size: 32px; }
   .photo-page-header { padding: 28px 20px 20px; }
   .photo-page-header h1 { font-size: 32px; }
-  .category-nav { padding: 0 20px; }
+  /* Category nav → horizontal scroll pill strip */
+  .category-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px 20px 0;
+    border-bottom: none;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+  .category-nav::-webkit-scrollbar { display: none; }
+  .category-nav li { flex-shrink: 0; }
+  .category-nav button {
+    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 20px;
+    margin-bottom: 0;
+    padding: 9px 18px;
+    white-space: nowrap;
+    font-size: 9px;
+    color: var(--text-muted);
+  }
+  .category-nav button.active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
   .gallery-section { padding: 24px 20px 56px; }
   .video-page-header { padding: 28px 20px 32px; }
   .video-page-header h1 { font-size: 32px; }
