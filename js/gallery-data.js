@@ -219,12 +219,12 @@ window.GALLERY_DATA = {
 };
 
 window.GALLERY_ROW_PATTERNS = {
-  "automotive": [1],
-  "hotel-interiors": [1],
-  "food-beverage": [1],
-  "events": [1],
-  "portrait-fashion": [1],
-  "sports": [1]
+  "automotive": [3,2,3,3,3,3,3,3,3,3,3,3,3,3,3,2,3],
+  "hotel-interiors": [3],
+  "food-beverage": [4],
+  "events": [3,4,6,5,3,6,4],
+  "portrait-fashion": [3],
+  "sports": [4,3,3,4,4,3,3,3,3,4]
 };
 
 window.CATEGORY_INFO = {
