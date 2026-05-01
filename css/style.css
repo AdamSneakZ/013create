@@ -207,11 +207,13 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  aspect-ratio: 16 / 9;
 }
-/* aspect-ratio removed — images display at natural ratio */
 .gallery-row .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
   display: block;
   transition: transform 0.45s ease;
 }
@@ -602,6 +604,9 @@ img { max-width: 100%; display: block; }
   .nav-links { gap: 28px; }
   .hero { padding: 0; }
   .hero img { height: 36vh; min-height: 200px; object-fit: cover; }
+  .gallery-row { flex-direction: column; }
+  .gallery-row .gallery-item { aspect-ratio: unset; }
+  .gallery-row .gallery-item img { height: auto; object-fit: unset; object-position: unset; }
   .page-wrap { padding: 0 20px; }
   .section-title { font-size: 32px; }
   .photo-page-header { padding: 28px 20px 20px; }
