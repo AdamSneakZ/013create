@@ -10,7 +10,7 @@
   }
 
   function imgSrc(cat, filename) {
-    return enc('assets/photos/' + cat + '/' + filename);
+    return enc('/assets/photos/' + cat + '/' + filename);
   }
 
   function altText(cat, n) {
