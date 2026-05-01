@@ -85,6 +85,9 @@
         img.loading = 'lazy';
         img.decoding = 'async';
 
+        var positions = (window.GALLERY_POSITIONS || {})[cat] || {};
+        if (positions[filename]) img.style.objectPosition = positions[filename];
+
         var capturedIdx = imgIdx++;
         item.addEventListener('click', function () { openLightbox(capturedIdx); });
         item.appendChild(img);

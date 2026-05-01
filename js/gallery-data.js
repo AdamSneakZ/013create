@@ -302,3 +302,13 @@ window.CATEGORY_INFO = {
     ]
   }
 };
+
+/* Per-image crop overrides — default is "center center".
+   Set "center bottom" for images whose subject sits in the lower portion of the frame. */
+window.GALLERY_POSITIONS = {
+  "automotive": {
+    "16.jpg": "center bottom",
+    "20.jpg": "center bottom",
+    "26.jpg": "center bottom"
+  }
+};
