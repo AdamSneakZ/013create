@@ -599,11 +599,13 @@ img { max-width: 100%; display: block; }
   .cap-row { grid-template-columns: 1fr; gap: 14px; padding: 28px 0; }
 }
 @media (max-width: 768px) {
+  body { font-size: 18px; }
+  .page-container { padding: 0 20px; }
   .site-header { padding: 24px 20px 0; }
   .header-logo img { height: 90px; }
   .nav-links { gap: 28px; }
   .hero { padding: 0; }
-  .hero img { height: 36vh; min-height: 200px; object-fit: cover; }
+  .hero img { height: 50vh; min-height: 220px; object-fit: cover; }
   .gallery-row { flex-wrap: wrap; }
   .gallery-row .gallery-item { flex: 0 0 100%; width: 100%; aspect-ratio: unset; }
   .gallery-row .gallery-item img { height: auto; object-fit: fill; object-position: initial; }
@@ -652,6 +654,9 @@ img { max-width: 100%; display: block; }
   .faq-q { font-size: 20px; }
   .faq-a { font-size: 16px; }
   .identity-text p { font-size: 18px; }
+  .home-section { padding: 32px 0; }
+  .lb-prev { left: 12px; }
+  .lb-next { right: 12px; }
 }
 @media (max-width: 480px) {
   .nav-links { gap: 18px; }
