@@ -207,13 +207,11 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  aspect-ratio: 16 / 9;
 }
+/* aspect-ratio removed — images display at natural ratio */
 .gallery-row .gallery-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
+  height: auto;
   display: block;
   transition: transform 0.45s ease;
 }
@@ -602,15 +600,14 @@ img { max-width: 100%; display: block; }
   .site-header { padding: 24px 20px 0; }
   .header-logo img { height: 90px; }
   .nav-links { gap: 28px; }
-  .hero { padding: 0 20px 0; }
-  .hero img { height: 36vh; min-height: 200px; }
+  .hero { padding: 0; }
+  .hero img { height: 36vh; min-height: 200px; object-fit: cover; }
   .page-wrap { padding: 0 20px; }
   .section-title { font-size: 32px; }
   .photo-page-header { padding: 28px 20px 20px; }
   .photo-page-header h1 { font-size: 32px; }
   .category-nav { padding: 0 20px; }
   .gallery-section { padding: 24px 20px 56px; }
-  .gallery-row .gallery-item img { height: 200px; }
   .video-page-header { padding: 28px 20px 32px; }
   .video-page-header h1 { font-size: 32px; }
   .video-grid { padding: 0 20px 56px; grid-template-columns: 1fr; gap: 32px; }
@@ -627,6 +624,5 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 480px) {
   .nav-links { gap: 18px; }
-  .gallery-row .gallery-item img { height: 140px; }
   .section-title { font-size: 26px; }
 }
