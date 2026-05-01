@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://013create.co.uk/sitemap.xml
