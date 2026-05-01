@@ -310,5 +310,21 @@ window.GALLERY_POSITIONS = {
     "16.jpg": "center bottom",
     "20.jpg": "center 70%",
     "26.jpg": "center bottom"
+  },
+  "hotel-interiors": {
+    "2.jpg":  "center 70%",
+    "18.jpg": "center 20%"
+  },
+  "food-beverage": {
+    "1.jpg":  "center 40%",
+    "4.jpg":  "center 60%",
+    "18.jpg": "center 30%",
+    "23.jpg": "center 40%"
+  },
+  "sports": {
+    "3.jpg":  "center 65%",
+    "15.jpg": "center 65%",
+    "16.jpg": "center 70%",
+    "22.jpg": "center bottom"
   }
 };
