@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>013Create | Hotel &amp; Interiors Photography — Luxury Hospitality Media West Yorkshire</title>
+  <meta name="description" content="Professional architectural and hospitality photography by Adam Gofton — 013Create. Luxury hotel exteriors, commercial property, and residential documentation across the UK.">
+  <meta name="keywords" content="hotel photography West Yorkshire, architectural photography UK, luxury interior photography Leeds, hospitality photography 013Create, property photography Yorkshire">
+  <meta name="author" content="Adam Gofton">
+  <meta property="og:title" content="013Create | Hotel &amp; Interiors Photography — Luxury Hospitality Media West Yorkshire">
+  <meta property="og:description" content="Professional architectural and hospitality photography by Adam Gofton — 013Create. Luxury hotel exteriors, commercial property, and residential documentation across the UK.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://013create.co.uk/hotel-interiors.html">
+  <link rel="canonical" href="https://013create.co.uk/hotel-interiors.html">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-container">
+
+    <header class="site-header">
+      <a href="index.html" class="header-logo">
+        <img src="assets/images/logo-black.png" alt="013Create — Professional automotive and luxury lifestyle media production, founded by Adam Gofton.">
+      </a>
+      <nav class="header-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="photo.html" class="active">Photo</a></li>
+          <li><a href="video.html">Video</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="cat-page-header">
+      <a href="photo.html" class="cat-back">&#8592; All Categories</a>
+      <h1>Hotel &amp; Interiors.</h1>
+    </div>
+
+  </div>
+
+  <!-- Gallery -->
+  <div class="page-container">
+    <div class="gallery-section" style="padding-left:0;padding-right:0">
+      <div id="galleryGrid"></div>
+    </div>
+  </div>
+
+  <!-- SEO text below gallery -->
+  <div class="page-container">
+    <div class="cat-seo-below">
+      <h2>Luxury Hospitality Media &amp; Bespoke Architectural Photography</h2>
+      <h3>Specialist Exterior &amp; Property Photography in West Yorkshire</h3>
+      <p>013 Create provides professional architectural photography for the hospitality and real estate sectors across Leeds, Huddersfield, and the North of England. Our portfolio encompasses luxury hotel exteriors, commercial property showcases, and high-end residential documentation designed for editorial and marketing use.</p>
+      <p>By utilising advanced perspective control and precision post-production, we ensure that every structure is presented with vertical accuracy and natural tonal balance. Whether it is a heritage hotel or a modern commercial development, our photography focuses on the intersection of light and form to create compelling visual narratives. Based in West Yorkshire, 013 Create is available for on-site commissions for architects, developers, and hospitality brands throughout the UK.</p>
+    </div>
+
+    <footer>
+      <span class="footer-copy">©013CREATE</span>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/013create/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@TheAGPStudios" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.linkedin.com/in/adamgofton/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:adam@013create.co.uk">Email</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <div class="lightbox-img-wrap"><img id="lbImg" src="" alt=""></div>
+    <button class="lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+    <span class="lb-counter" id="lbCounter"></span>
+  </div>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <p>013Create uses cookies to enhance your experience and analyse site traffic. By continuing to browse the site, you agree to our use of cookies.</p>
+    <div class="cookie-actions">
+      <button class="btn-cookie" id="cookieDecline">Decline</button>
+      <button class="btn-cookie accept" id="cookieAccept">Accept</button>
+    </div>
+  </div>
+
+  <script src="js/gallery-data.js"></script>
+  <script src="js/gallery.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.renderGalleryDirect) window.renderGalleryDirect('hotel-interiors');
+    });
+  </script>
+</body>
+</html>

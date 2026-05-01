@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>013Create | Portrait &amp; Fashion Photography — Editorial Portraiture West Yorkshire</title>
+  <meta name="description" content="Editorial portraiture and high-end fashion media production by Adam Gofton — 013Create. Commercial lookbooks, model portfolios, and fashion campaigns across the UK.">
+  <meta name="keywords" content="fashion photography West Yorkshire, portrait photographer Leeds, editorial portraiture UK, model portfolio photography Yorkshire, lookbook photographer Huddersfield">
+  <meta name="author" content="Adam Gofton">
+  <meta property="og:title" content="013Create | Portrait &amp; Fashion Photography — Editorial Portraiture West Yorkshire">
+  <meta property="og:description" content="Editorial portraiture and high-end fashion media production by Adam Gofton — 013Create. Commercial lookbooks, model portfolios, and fashion campaigns across the UK.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://013create.co.uk/portrait-fashion.html">
+  <link rel="canonical" href="https://013create.co.uk/portrait-fashion.html">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-container">
+
+    <header class="site-header">
+      <a href="index.html" class="header-logo">
+        <img src="assets/images/logo-black.png" alt="013Create — Professional automotive and luxury lifestyle media production, founded by Adam Gofton.">
+      </a>
+      <nav class="header-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="photo.html" class="active">Photo</a></li>
+          <li><a href="video.html">Video</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="cat-page-header">
+      <a href="photo.html" class="cat-back">&#8592; All Categories</a>
+      <h1>Portrait &amp; Fashion.</h1>
+    </div>
+
+  </div>
+
+  <!-- Gallery -->
+  <div class="page-container">
+    <div class="gallery-section" style="padding-left:0;padding-right:0">
+      <div id="galleryGrid"></div>
+    </div>
+  </div>
+
+  <!-- SEO text below gallery -->
+  <div class="page-container">
+    <div class="cat-seo-below">
+      <h2>Editorial Portraiture &amp; High-End Fashion Media Production</h2>
+      <h3>Portrait &amp; Fashion Photography West Yorkshire</h3>
+      <p>Professional portraiture and fashion media production for brands, designers, and creative professionals across Leeds, Huddersfield, and the North of England. We specialise in high-end editorial fashion shoots, commercial lookbooks, and bespoke model portfolios, focusing on cinematic lighting and authentic storytelling.</p>
+      <p>Whether delivering studio-based campaigns or environmental portraits on location, our work is defined by technical excellence. Based in West Yorkshire, 013 Create provides specialised photography services designed to elevate brand identity and creative presence for clients throughout the UK.</p>
+    </div>
+
+    <footer>
+      <span class="footer-copy">©013CREATE</span>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/013create/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@TheAGPStudios" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.linkedin.com/in/adamgofton/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:adam@013create.co.uk">Email</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <div class="lightbox-img-wrap"><img id="lbImg" src="" alt=""></div>
+    <button class="lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+    <span class="lb-counter" id="lbCounter"></span>
+  </div>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <p>013Create uses cookies to enhance your experience and analyse site traffic. By continuing to browse the site, you agree to our use of cookies.</p>
+    <div class="cookie-actions">
+      <button class="btn-cookie" id="cookieDecline">Decline</button>
+      <button class="btn-cookie accept" id="cookieAccept">Accept</button>
+    </div>
+  </div>
+
+  <script src="js/gallery-data.js"></script>
+  <script src="js/gallery.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.renderGalleryDirect) window.renderGalleryDirect('portrait-fashion');
+    });
+  </script>
+</body>
+</html>

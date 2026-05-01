@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>013Create | Contact — Bespoke Media Production for Automotive &amp; Luxury Brands</title>
+  <meta name="description" content="Get in touch with 013Create — bespoke media production for automotive and luxury brands. Contact Adam Gofton to discuss your project. Based in West Yorkshire.">
+  <meta name="keywords" content="013Create contact, Adam Gofton contact, hire automotive photographer UK, book videographer, luxury brand photography enquiry West Yorkshire">
+  <meta name="author" content="Adam Gofton">
+  <meta property="og:title" content="013Create | Contact">
+  <meta property="og:description" content="Bespoke media production for automotive and luxury brands. Get in touch to discuss your project.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://013create.co.uk/contact.html">
+  <link rel="canonical" href="https://013create.co.uk/contact.html">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="header-logo">
+      <img src="assets/images/logo-black.png" alt="013Create — Professional automotive and luxury lifestyle media production, founded by Adam Gofton.">
+    </a>
+    <nav class="header-nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="photo.html">Photo</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="contact-wrap">
+    <h1>Contact.</h1>
+    <p class="contact-tagline">Bespoke Media Production for Automotive &amp; Luxury Brands.</p>
+
+    <!--
+      FORM SETUP — Formspree (free, 50 submissions/month):
+      1. Go to https://formspree.io/register — create a free account
+      2. Click "New Form", name it "013Create Contact"
+      3. Copy your form ID (e.g. xabcdefg)
+      4. Replace YOUR_FORMSPREE_ID below with your actual ID
+    -->
+    <form
+      class="contact-form"
+      id="contactForm"
+      action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+      method="POST"
+    >
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select id="service" name="service">
+            <option value="" disabled selected>Select service</option>
+            <option value="Photography">Photography</option>
+            <option value="Videography">Videography</option>
+            <option value="Photo &amp; Video">Photo &amp; Video</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="project">Project Type</label>
+          <select id="project" name="project_type">
+            <option value="" disabled selected>Select type</option>
+            <option value="Automotive">Automotive</option>
+            <option value="Hotel &amp; Interiors">Hotel &amp; Interiors</option>
+            <option value="Food &amp; Beverage">Food &amp; Beverage</option>
+            <option value="Events">Events</option>
+            <option value="Portrait &amp; Fashion">Portrait &amp; Fashion</option>
+            <option value="Sports">Sports</option>
+            <option value="Brand Film">Brand Film</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" required placeholder="Tell us about your project..."></textarea>
+      </div>
+
+      <input type="text" name="_gotcha" style="display:none">
+      <input type="hidden" name="_subject" value="New enquiry — 013Create website">
+
+      <button type="submit" class="btn-submit">Send Message</button>
+      <p class="form-note">A member of the team will be in contact soon.</p>
+    </form>
+  </div>
+
+  <footer>
+    <span class="footer-copy">©013CREATE</span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/013create/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.youtube.com/@TheAGPStudios" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.linkedin.com/in/adamgofton/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:adam@013create.co.uk">Email</a>
+      <a href="https://wa.me/447879993188" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <p>013Create uses cookies to enhance your experience and analyse site traffic. By continuing to browse the site, you agree to our use of cookies.</p>
+    <div class="cookie-actions">
+      <button class="btn-cookie" id="cookieDecline">Decline</button>
+      <button class="btn-cookie accept" id="cookieAccept">Accept</button>
+    </div>
+  </div>
+
+  <script src="js/gallery.js"></script>
+</body>
+</html>
