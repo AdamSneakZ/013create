@@ -304,3 +304,42 @@ window.GALLERY_POSITIONS = {
     "22.jpg": "center bottom"
   }
 };
+
+/* ─────────────────────────────────────────────────────────────────
+   GALLERY_ALT_TEXT — per-image alt text for SEO and accessibility
+   ─────────────────────────────────────────────────────────────────
+   HOW TO USE:
+   Add an entry for any image that deserves a specific description.
+   Key = exact filename (must match GALLERY_DATA above).
+   Value = a descriptive sentence: what vehicle/subject, any notable
+   details, location. Keep under 125 characters.
+
+   Images without an entry here will fall back to the category-level
+   alt text in gallery.js automatically.
+
+   EXAMPLE:
+     "automotive": {
+       "1.jpg": "Red Ferrari 488 GTB detail shot — carbon fibre wing mirror, West Yorkshire countryside background",
+       "2.jpg": "Porsche 911 GT3 RS in Lava Orange at golden hour, Yorkshire Dales — 013Create automotive photography"
+     }
+   ───────────────────────────────────────────────────────────────── */
+window.GALLERY_ALT_TEXT = {
+  "automotive": {
+    /* Add entries here — e.g.: "1.jpg": "Your description here" */
+  },
+  "hotel-interiors": {
+    /* Add entries here */
+  },
+  "food-beverage": {
+    /* Add entries here */
+  },
+  "events": {
+    /* Add entries here */
+  },
+  "portrait-fashion": {
+    /* Add entries here */
+  },
+  "sports": {
+    /* Add entries here */
+  }
+};

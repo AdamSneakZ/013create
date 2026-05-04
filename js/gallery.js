@@ -13,16 +13,20 @@
     return enc('/assets/photos/' + cat + '/' + filename);
   }
 
-  function altText(cat, n) {
+  function altText(cat, filename, n) {
+    /* Check for per-image override first */
+    var overrides = (window.GALLERY_ALT_TEXT || {})[cat] || {};
+    if (overrides[filename]) return overrides[filename];
+
     var labels = {
-      'automotive': 'Automotive photography by Adam Gofton — 013Create',
-      'hotel-interiors': 'Hotel & interiors photography by Adam Gofton — 013Create',
-      'food-beverage': 'Food & beverage photography by Adam Gofton — 013Create',
-      'events': 'Events photography by Adam Gofton — 013Create',
-      'portrait-fashion': 'Portrait & fashion photography by Adam Gofton — 013Create',
-      'sports': 'Sports photography by Adam Gofton — 013Create'
+      'automotive':       'Prestige automotive photography by Adam Gofton, 013Create — specialist car photographer UK',
+      'hotel-interiors':  'Luxury hotel and interiors photography by Adam Gofton, 013Create — hospitality photography UK',
+      'food-beverage':    'Commercial food and beverage photography by Adam Gofton, 013Create — culinary photography West Yorkshire',
+      'events':           'Professional event photography by Adam Gofton, 013Create — corporate and brand event photographer UK',
+      'portrait-fashion': 'Editorial portrait and fashion photography by Adam Gofton, 013Create — fashion photographer West Yorkshire',
+      'sports':           'Action sports photography by Adam Gofton, 013Create — athlete and sports photographer UK'
     };
-    return (labels[cat] || '013Create photography by Adam Gofton') + ', image ' + (n + 1);
+    return (labels[cat] || '013Create photography by Adam Gofton — West Yorkshire UK') + ', image ' + (n + 1);
   }
 
   /* Build rows from flat image array using pattern */
@@ -81,7 +85,7 @@
 
         var img = document.createElement('img');
         img.src = imgSrc(cat, filename);
-        img.alt = altText(cat, imgIdx);
+        img.alt = altText(cat, filename, imgIdx);
         img.loading = 'lazy';
         img.decoding = 'async';
 
@@ -125,7 +129,7 @@
     var counter = document.getElementById('lbCounter');
     if (img) {
       img.src = imgSrc(currentCat, currentImages[currentIdx]);
-      img.alt = altText(currentCat, currentIdx);
+      img.alt = altText(currentCat, currentImages[currentIdx], currentIdx);
     }
     if (counter) counter.textContent = (currentIdx + 1) + ' / ' + currentImages.length;
   }
