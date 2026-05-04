@@ -388,6 +388,20 @@ img { max-width: 100%; display: block; }
   margin-bottom: 52px;
   line-height: 1.5;
 }
+.contact-direct {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-bottom: 44px;
+  margin-top: -36px;
+}
+.contact-email {
+  color: var(--accent);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+  transition: border-color 0.25s;
+}
+.contact-email:hover { border-color: var(--accent); }
+
 .contact-form { display: flex; flex-direction: column; gap: 24px; max-width: 680px; }
 .form-group { display: flex; flex-direction: column; gap: 9px; }
 .form-group label {
