@@ -21,7 +21,8 @@
   <link rel="icon" type="image/png" href="/assets/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/css/style.css">
   <script type="application/ld+json">
   {
@@ -124,6 +125,7 @@
     ]
   }
   </script>
+  <link rel="preload" as="image" href="/assets/images/bts-hero.webp" type="image/webp">
   <link rel="preload" as="image" href="/assets/images/bts-hero.jpg">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NCPW8TMFN"></script>
@@ -152,10 +154,14 @@
         </ul>
       </nav>
     </header>
+  <main>
 
     <!-- Hero — BTS image, centred, constrained width -->
     <section class="hero">
-      <img src="/assets/images/bts-hero.jpg" width="2560" height="920" fetchpriority="high" alt="Automotive cinematographer and Director of Photography Adam Gofton operating a Canon R6 Mk III camera on a DJI gimbal with a matte box, external monitor, and shotgun microphone, filming a dark grey Lamborghini Super Trofeo race car in a sophisticated, moody West Yorkshire garage workshop. Behind-the-scenes production shot showing professional visual architecture and Macro-to-Motion style.">
+      <picture>
+        <source srcset="/assets/images/bts-hero.webp" type="image/webp">
+        <img src="/assets/images/bts-hero.jpg" width="2560" height="920" fetchpriority="high" alt="Automotive cinematographer and Director of Photography Adam Gofton operating a Canon R6 Mk III camera on a DJI gimbal with a matte box, external monitor, and shotgun microphone, filming a dark grey Lamborghini Super Trofeo race car in a sophisticated, moody West Yorkshire garage workshop. Behind-the-scenes production shot showing professional visual architecture and Macro-to-Motion style.">
+      </picture>
     </section>
 
     <!-- Identity -->
@@ -223,6 +229,7 @@
 
   </div><!-- /page-container -->
 
+  </main>
   <div class="cookie-banner" id="cookieBanner">
     <p>013Create uses cookies to enhance your experience and analyse site traffic. By continuing to browse the site, you agree to our use of cookies.</p>
     <div class="cookie-actions">
