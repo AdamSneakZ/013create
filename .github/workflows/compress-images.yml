@@ -6,6 +6,7 @@ on:
     paths:
       - "assets/photos/**"
       - "assets/thumbnails/**"
+      - "assets/images/**"
     branches:
       - main
 
@@ -13,7 +14,6 @@ jobs:
   compress:
     name: Compress Images
     runs-on: ubuntu-latest
-    # Prevent the auto-commit from re-triggering this workflow
     if: "!contains(github.event.head_commit.message, '[skip compress]')"
     permissions:
       contents: write
@@ -30,26 +30,30 @@ jobs:
       - name: Install sharp
         run: npm install --no-save sharp
 
-      - name: Compress images
+      - name: Compress images and generate WebP
         run: |
           node << 'JSEOF'
           const sharp = require("sharp");
           const fs    = require("fs");
           const path  = require("path");
 
-          async function processDir(dir) {
+          async function processDir(dir, generateWebP) {
             if (!fs.existsSync(dir)) { console.log("Skip (not found):", dir); return; }
             for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
               const fp  = path.join(dir, e.name);
-              if (e.isDirectory()) { await processDir(fp); continue; }
-              const ext = e.name.toLowerCase().match(/\.(jpe?g|png|webp)$/);
+              if (e.isDirectory()) { await processDir(fp, generateWebP); continue; }
+              const ext = e.name.toLowerCase().match(/\.(jpe?g|png)$/);
               if (!ext) continue;
+
               const orig = fs.readFileSync(fp);
+
+              // Compress original
               try {
                 let out;
-                if      (ext[1] === "png")  out = await sharp(orig).png({ quality: 85, compressionLevel: 9 }).toBuffer();
-                else if (ext[1] === "webp") out = await sharp(orig).webp({ quality: 82 }).toBuffer();
-                else                        out = await sharp(orig).jpeg({ quality: 82, progressive: true, mozjpeg: true }).toBuffer();
+                if (ext[1] === "png")
+                  out = await sharp(orig).png({ quality: 85, compressionLevel: 9 }).toBuffer();
+                else
+                  out = await sharp(orig).jpeg({ quality: 82, progressive: true, mozjpeg: true }).toBuffer();
 
                 if (out.length < orig.length) {
                   const pct = ((1 - out.length / orig.length) * 100).toFixed(1);
@@ -59,14 +63,33 @@ jobs:
                   console.log("Already optimal:", fp);
                 }
               } catch (err) {
-                console.error("Error:", fp, err.message);
+                console.error("Error compressing:", fp, err.message);
+              }
+
+              // Generate WebP version alongside original
+              if (generateWebP && ext[1] !== "png") {
+                const webpPath = fp.replace(/\.(jpe?g)$/i, ".webp");
+                try {
+                  const webpBuf = await sharp(orig).webp({ quality: 82 }).toBuffer();
+                  const origSize = orig.length;
+                  if (webpBuf.length < origSize) {
+                    fs.writeFileSync(webpPath, webpBuf);
+                    const pct = ((1 - webpBuf.length / origSize) * 100).toFixed(1);
+                    console.log("WebP created:", webpPath, "(" + pct + "% vs JPEG)");
+                  } else {
+                    console.log("WebP not smaller, skipping:", webpPath);
+                  }
+                } catch (err) {
+                  console.error("Error generating WebP:", webpPath, err.message);
+                }
               }
             }
           }
 
           (async () => {
-            await processDir("assets/photos");
-            await processDir("assets/thumbnails");
+            await processDir("assets/photos", false);
+            await processDir("assets/thumbnails", false);
+            await processDir("assets/images", true);
             console.log("Done.");
           })();
           'JSEOF'
@@ -75,10 +98,10 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/photos/ assets/thumbnails/
+          git add assets/photos/ assets/thumbnails/ assets/images/
           if git diff --staged --quiet; then
             echo "No images needed compression."
           else
-            git commit -m "Auto-compress images for web [skip compress]"
+            git commit -m "Auto-compress images and generate WebP [skip compress]"
             git push
           fi
