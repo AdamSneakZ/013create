@@ -122,19 +122,26 @@
       if (rows.length > 0) {
         var container = document.createElement('div');
         container.setAttribute('data-dynamic', '');
+        grid.appendChild(container); // attach first so batches can append to it
         var imgIdx = firstRowCount;
-        rows.forEach(function (rowImages) {
-          var row = document.createElement('div');
-          row.className = 'gallery-row';
-          rowImages.forEach(function (filename) {
-            var item = makeGalleryItem(cat, filename, imgIdx, false);
-            var capturedIdx = imgIdx++;
-            item.addEventListener('click', function () { openLightbox(capturedIdx); });
-            row.appendChild(item);
-          });
-          container.appendChild(row);
-        });
-        grid.appendChild(container);
+        // Render in rAF batches (≤10 rows each) to keep main-thread tasks <50ms
+        var BATCH = 10;
+        function renderBatch(start) {
+          var end = Math.min(start + BATCH, rows.length);
+          for (var b = start; b < end; b++) {
+            var row = document.createElement('div');
+            row.className = 'gallery-row';
+            rows[b].forEach(function (filename) {
+              var item = makeGalleryItem(cat, filename, imgIdx, false);
+              var capturedIdx = imgIdx++;
+              item.addEventListener('click', function () { openLightbox(capturedIdx); });
+              row.appendChild(item);
+            });
+            container.appendChild(row);
+          }
+          if (end < rows.length) requestAnimationFrame(function () { renderBatch(end); });
+        }
+        requestAnimationFrame(function () { renderBatch(0); });
       }
 
     } else {
