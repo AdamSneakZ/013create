@@ -13,6 +13,11 @@
     return enc('/assets/photos/' + cat + '/' + filename);
   }
 
+  function thumbSrc(cat, filename) {
+    var base = filename.replace(/\.[^.]+$/, '');
+    return enc('/assets/photos/' + cat + '/thumbs/' + base + '.webp');
+  }
+
   function altText(cat, filename, n) {
     /* Check for per-image override first */
     var overrides = (window.GALLERY_ALT_TEXT || {})[cat] || {};
@@ -84,10 +89,11 @@
         item.className = 'gallery-item';
 
         var img = document.createElement('img');
-        img.src = imgSrc(cat, filename);
+        img.src = thumbSrc(cat, filename);
         img.alt = altText(cat, filename, imgIdx);
-        img.loading = 'lazy';
+        img.loading = imgIdx === 0 ? 'eager' : 'lazy';
         img.decoding = 'async';
+        if (imgIdx === 0) img.fetchPriority = 'high';
 
         var positions = (window.GALLERY_POSITIONS || {})[cat] || {};
         if (positions[filename]) img.style.objectPosition = positions[filename];
