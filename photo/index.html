@@ -46,9 +46,22 @@ img{max-width:100%;display:block}
 .hero picture source,.hero picture img{width:100%;height:auto;display:block}
 .page-container{max-width:1320px;margin:0 auto;padding:0 40px}
 @media(max-width:768px){:root{--header-h:58px}.site-header{padding:0 24px}.header-logo img{height:32px}.nav-links{gap:22px}.nav-links a{font-size:10px;letter-spacing:.18em}.page-container{padding:0 20px}}
-/* Static first row: visible on mobile for fast LCP, hidden on desktop (avoids CLS when gallery expands) */
+/* Static first row: mobile only */
 .gallery-static-lcp{display:none}
 @media(max-width:768px){.gallery-static-lcp{display:block}}
+/* Gallery layout — MUST be inline so containers have known size before images load.
+   Without this, gallery-item height=0 until style.css loads → CLS 0.9+ and LCP misses */
+.gallery-section{padding:36px 48px 80px}
+.gallery-row{display:flex;gap:var(--gap);margin-bottom:var(--gap)}
+.gallery-row .gallery-item{flex:1;min-width:0;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:16/9}
+.gallery-row .gallery-item img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+.gallery-row .gallery-item:hover img{transform:scale(1.04)}
+@media(max-width:768px){
+  .gallery-section{padding:24px 20px 56px}
+  .gallery-row{flex-wrap:wrap}
+  .gallery-row .gallery-item{flex:0 0 100%;width:100%;aspect-ratio:unset}
+  .gallery-row .gallery-item img{height:auto;object-fit:fill;object-position:initial}
+}
 </style>
   <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
