@@ -139,7 +139,28 @@ img{max-width:100%;display:block}
   </ul>
 
   <div class="gallery-section">
-    <div id="galleryGrid"></div>
+    <div id="galleryGrid">
+      <!-- Static first row: paints immediately without JS so LCP is not blocked -->
+      <div class="gallery-rows">
+        <div class="gallery-row">
+          <div class="gallery-item">
+            <img src="/assets/photos/automotive/thumbs/1.webp"
+                 alt="Ferrari 599XX widebody in red — night urban shoot with light trails, editorial supercar photography UK by 013Create"
+                 loading="eager" fetchpriority="high" width="800" height="533">
+          </div>
+          <div class="gallery-item">
+            <img src="/assets/photos/automotive/thumbs/2.webp"
+                 alt="Ferrari 599XX GTO in Rosso Corsa at golden hour in open Yorkshire field — prestige supercar photography UK"
+                 loading="lazy" width="800" height="533">
+          </div>
+          <div class="gallery-item">
+            <img src="/assets/photos/automotive/thumbs/3.webp"
+                 alt="Ferrari 599XX GTO rear three-quarter — atmospheric smoky carpark, prestige automotive photography UK by 013Create"
+                 loading="lazy" width="800" height="533">
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="cat-desc" id="catDesc"></div>
   </div>
 
@@ -181,7 +202,7 @@ img{max-width:100%;display:block}
     </div>
   </div>
 
-  <script src="/js/gallery-data.js"></script>
+  <script src="/js/gallery-data-automotive.js"></script>
   <script src="/js/gallery.js"></script>
   <script src="/js/reveal.js"></script>
 </body>

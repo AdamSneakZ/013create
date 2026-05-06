@@ -4,6 +4,19 @@
   var currentCat = '';
   var currentImages = [];
   var currentIdx = 0;
+  var _loading = {}; // prevent double-loading a category
+
+  /* Load per-category data on demand */
+  function loadCatData(cat, cb) {
+    if ((window.GALLERY_DATA || {})[cat]) { cb(); return; }
+    if (_loading[cat]) { return; } // already in flight
+    _loading[cat] = true;
+    var s = document.createElement('script');
+    s.src = '/js/gallery-data-' + cat + '.js';
+    s.onload = cb;
+    s.onerror = cb;
+    document.head.appendChild(s);
+  }
 
   function enc(path) {
     return path.split('/').map(function (p) { return encodeURIComponent(p); }).join('/');
@@ -19,10 +32,8 @@
   }
 
   function altText(cat, filename, n) {
-    /* Check for per-image override first */
     var overrides = (window.GALLERY_ALT_TEXT || {})[cat] || {};
     if (overrides[filename]) return overrides[filename];
-
     var labels = {
       'automotive':       'Prestige automotive photography by Adam Gofton, 013Create — specialist car photographer UK',
       'hotel-interiors':  'Luxury hotel and interiors photography by Adam Gofton, 013Create — hospitality photography UK',
@@ -34,7 +45,6 @@
     return (labels[cat] || '013Create photography by Adam Gofton — West Yorkshire UK') + ', image ' + (n + 1);
   }
 
-  /* Build rows from flat image array using pattern */
   function buildRows(images, pattern) {
     var rows = [];
     var idx = 0;
@@ -49,7 +59,6 @@
     return rows;
   }
 
-  /* Render category description text */
   function renderCategoryDesc(cat) {
     var info = (window.CATEGORY_INFO || {})[cat];
     var el = document.getElementById('catDesc');
@@ -59,7 +68,6 @@
       info.copy.map(function (p) { return '<p>' + p + '</p>'; }).join('');
   }
 
-  /* Main gallery renderer */
   function renderGallery(cat) {
     var data = window.GALLERY_DATA || {};
     var images = data[cat] || [];
@@ -110,7 +118,6 @@
     grid.innerHTML = '';
     grid.appendChild(container);
 
-    /* Update active tab */
     document.querySelectorAll('.category-nav button').forEach(function (btn) {
       btn.classList.toggle('active', btn.dataset.category === cat);
     });
@@ -151,18 +158,29 @@
   }
 
   /* ── SINGLE-CATEGORY PAGE SUPPORT ── */
-  window.renderGalleryDirect = renderGallery;
+  window.renderGalleryDirect = function (cat) {
+    loadCatData(cat, function () { renderGallery(cat); });
+  };
 
   /* ── INIT ── */
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* Tab switching */
+    /* Tab switching — load data file on demand */
     document.querySelectorAll('.category-nav button').forEach(function (btn) {
-      btn.addEventListener('click', function () { renderGallery(btn.dataset.category); });
+      btn.addEventListener('click', function () {
+        loadCatData(btn.dataset.category, function () {
+          renderGallery(btn.dataset.category);
+        });
+      });
     });
 
+    /* Initial render — data already on page via preloaded <script> */
     var firstBtn = document.querySelector('.category-nav button');
-    if (firstBtn) renderGallery(firstBtn.dataset.category);
+    if (firstBtn) {
+      loadCatData(firstBtn.dataset.category, function () {
+        renderGallery(firstBtn.dataset.category);
+      });
+    }
 
     /* Lightbox controls */
     var lb = document.getElementById('lightbox');
