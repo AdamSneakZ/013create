@@ -46,9 +46,8 @@ img{max-width:100%;display:block}
 .hero picture source,.hero picture img{width:100%;height:auto;display:block}
 .page-container{max-width:1320px;margin:0 auto;padding:0 40px}
 @media(max-width:768px){:root{--header-h:58px}.site-header{padding:0 24px}.header-logo img{height:32px}.nav-links{gap:22px}.nav-links a{font-size:10px;letter-spacing:.18em}.page-container{padding:0 20px}}
-/* Static first row: mobile only */
-.gallery-static-lcp{display:none}
-@media(max-width:768px){.gallery-static-lcp{display:block}}
+/* Reserve height so cat-desc starts below the viewport — prevents expansion CLS */
+#galleryGrid{min-height:100vh}
 /* Gallery layout — MUST be inline so containers have known size before images load.
    Without this, gallery-item height=0 until style.css loads → CLS 0.9+ and LCP misses */
 .gallery-section{padding:36px 48px 80px}
@@ -156,8 +155,8 @@ img{max-width:100%;display:block}
 
   <div class="gallery-section">
     <div id="galleryGrid">
-      <!-- Static first row: mobile LCP only — hidden on desktop to prevent CLS -->
-      <div class="gallery-static-lcp gallery-rows">
+      <!-- Static first row: always rendered in HTML so LCP image never waits for JS -->
+      <div class="gallery-rows" data-static-row>
         <div class="gallery-row">
           <div class="gallery-item">
             <img src="/assets/photos/automotive/thumbs/1.webp"

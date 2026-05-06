@@ -4,12 +4,11 @@
   var currentCat = '';
   var currentImages = [];
   var currentIdx = 0;
-  var _loading = {}; // prevent double-loading a category
+  var _loading = {};
 
-  /* Load per-category data on demand */
   function loadCatData(cat, cb) {
     if ((window.GALLERY_DATA || {})[cat]) { cb(); return; }
-    if (_loading[cat]) { return; } // already in flight
+    if (_loading[cat]) { return; }
     _loading[cat] = true;
     var s = document.createElement('script');
     s.src = '/js/gallery-data-' + cat + '.js';
@@ -68,55 +67,98 @@
       info.copy.map(function (p) { return '<p>' + p + '</p>'; }).join('');
   }
 
+  function makeGalleryItem(cat, filename, imgIdx, isFirst) {
+    var item = document.createElement('div');
+    item.className = 'gallery-item';
+    var img = document.createElement('img');
+    img.src = thumbSrc(cat, filename);
+    img.alt = altText(cat, filename, imgIdx);
+    img.loading = isFirst ? 'eager' : 'lazy';
+    img.decoding = 'async';
+    if (isFirst) img.fetchPriority = 'high';
+    var pos = (window.GALLERY_POSITIONS || {})[cat] || {};
+    if (pos[filename]) img.style.objectPosition = pos[filename];
+    item.appendChild(img);
+    return item;
+  }
+
   function renderGallery(cat) {
+    var grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+
     var data = window.GALLERY_DATA || {};
     var images = data[cat] || [];
     var patterns = window.GALLERY_ROW_PATTERNS || {};
     var pattern = patterns[cat] || [3];
 
-    var grid = document.getElementById('galleryGrid');
-    if (!grid) return;
-
     currentCat = cat;
     currentImages = images;
-
     renderCategoryDesc(cat);
 
-    var container = document.createElement('div');
-    container.className = 'gallery-rows';
+    // Check for the static first row (present in HTML for fast LCP)
+    var staticRow = grid.querySelector('[data-static-row]');
 
-    var imgIdx = 0;
-    var rows = buildRows(images, pattern);
-
-    rows.forEach(function (rowImages) {
-      var row = document.createElement('div');
-      row.className = 'gallery-row';
-
-      rowImages.forEach(function (filename) {
-        var item = document.createElement('div');
-        item.className = 'gallery-item';
-
-        var img = document.createElement('img');
-        img.src = thumbSrc(cat, filename);
-        img.alt = altText(cat, filename, imgIdx);
-        img.loading = imgIdx === 0 ? 'eager' : 'lazy';
-        img.decoding = 'async';
-        if (imgIdx === 0) img.fetchPriority = 'high';
-
-        var positions = (window.GALLERY_POSITIONS || {})[cat] || {};
-        if (positions[filename]) img.style.objectPosition = positions[filename];
-
-        var capturedIdx = imgIdx++;
-        item.addEventListener('click', function () { openLightbox(capturedIdx); });
-        item.appendChild(img);
-        row.appendChild(item);
+    if (staticRow && cat === 'automotive') {
+      // Static row is already in the DOM and already painted — preserve it.
+      // Wire lightbox click handlers to its items.
+      var staticItems = staticRow.querySelectorAll('.gallery-item');
+      staticItems.forEach(function (item, i) {
+        // Replace any previously-attached handler by cloning
+        var fresh = item.cloneNode(true);
+        fresh.addEventListener('click', function () { openLightbox(i); });
+        item.parentNode.replaceChild(fresh, item);
       });
 
-      container.appendChild(row);
-    });
+      // Remove any previously-appended dynamic rows
+      var prev = grid.querySelector('[data-dynamic]');
+      if (prev) prev.parentNode.removeChild(prev);
 
-    grid.innerHTML = '';
-    grid.appendChild(container);
+      // Append rows 2 onwards (skip the 3 images already in the static row)
+      var firstRowCount = pattern[0] || 3;
+      var remaining = images.slice(firstRowCount);
+      var remainPat = pattern.length > 1 ? pattern.slice(1) : [pattern[pattern.length - 1]];
+      var rows = buildRows(remaining, remainPat);
+
+      if (rows.length > 0) {
+        var container = document.createElement('div');
+        container.setAttribute('data-dynamic', '');
+        var imgIdx = firstRowCount;
+        rows.forEach(function (rowImages) {
+          var row = document.createElement('div');
+          row.className = 'gallery-row';
+          rowImages.forEach(function (filename) {
+            var item = makeGalleryItem(cat, filename, imgIdx, false);
+            var capturedIdx = imgIdx++;
+            item.addEventListener('click', function () { openLightbox(capturedIdx); });
+            row.appendChild(item);
+          });
+          container.appendChild(row);
+        });
+        grid.appendChild(container);
+      }
+
+    } else {
+      // Full render: clear grid and build all rows.
+      // Used for tab switches (CLS from user interaction is not measured).
+      grid.innerHTML = '';
+      var container = document.createElement('div');
+      container.setAttribute('data-dynamic', '');
+      container.className = 'gallery-rows';
+      var imgIdx = 0;
+      buildRows(images, pattern).forEach(function (rowImages) {
+        var row = document.createElement('div');
+        row.className = 'gallery-row';
+        rowImages.forEach(function (filename) {
+          var isFirst = imgIdx === 0;
+          var item = makeGalleryItem(cat, filename, imgIdx, isFirst);
+          var capturedIdx = imgIdx++;
+          item.addEventListener('click', function () { openLightbox(capturedIdx); });
+          row.appendChild(item);
+        });
+        container.appendChild(row);
+      });
+      grid.appendChild(container);
+    }
 
     document.querySelectorAll('.category-nav button').forEach(function (btn) {
       btn.classList.toggle('active', btn.dataset.category === cat);
@@ -165,7 +207,6 @@
   /* ── INIT ── */
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* Tab switching — load data file on demand */
     document.querySelectorAll('.category-nav button').forEach(function (btn) {
       btn.addEventListener('click', function () {
         loadCatData(btn.dataset.category, function () {
@@ -174,7 +215,6 @@
       });
     });
 
-    /* Initial render — data already on page via preloaded <script> */
     var firstBtn = document.querySelector('.category-nav button');
     if (firstBtn) {
       loadCatData(firstBtn.dataset.category, function () {
@@ -182,7 +222,6 @@
       });
     }
 
-    /* Lightbox controls */
     var lb = document.getElementById('lightbox');
     var lbClose = document.getElementById('lbClose');
     var lbPrevBtn = document.getElementById('lbPrev');
@@ -205,7 +244,6 @@
       if (e.key === 'ArrowRight') lbNext();
     });
 
-    /* Cookie banner */
     var banner = document.getElementById('cookieBanner');
     if (banner) {
       if (localStorage.getItem('cookieConsent')) {
