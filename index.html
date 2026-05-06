@@ -148,8 +148,8 @@ img{max-width:100%;display:block}
     ]
   }
   </script>
-  <link rel="preload" as="image" href="/assets/images/bts-hero.webp" type="image/webp">
-  <link rel="preload" as="image" href="/assets/images/bts-hero.jpg">
+  <link rel="preload" as="image" href="/assets/images/bts-hero-mobile.webp" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="/assets/images/bts-hero.webp" media="(min-width: 769px)">
   <!-- Google Analytics deferred until idle -->
   <script>
     window.dataLayer=window.dataLayer||[];
@@ -172,7 +172,10 @@ img{max-width:100%;display:block}
     <!-- Header: centered logo + nav -->
     <header class="site-header">
       <a href="/" class="header-logo">
-        <img src="/assets/images/logo-white.png" width="1257" height="1032" alt="013Create logo - Professional automotive and luxury lifestyle media production brand, founded by Adam Gofton.">
+        <picture>
+          <source srcset="/assets/images/logo-white.webp" type="image/webp">
+          <img src="/assets/images/logo-white.png" width="1257" height="1032" alt="013Create logo - Professional automotive and luxury lifestyle media production brand, founded by Adam Gofton.">
+        </picture>
       </a>
       <nav class="header-nav">
         <ul class="nav-links">
@@ -188,6 +191,8 @@ img{max-width:100%;display:block}
     <!-- Hero — BTS image, centred, constrained width -->
     <section class="hero">
       <picture>
+        <source media="(max-width: 768px)" srcset="/assets/images/bts-hero-mobile.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="/assets/images/bts-hero-mobile.jpg" type="image/jpeg">
         <source srcset="/assets/images/bts-hero.webp" type="image/webp">
         <img src="/assets/images/bts-hero.jpg" width="2560" height="920" fetchpriority="high" alt="Automotive cinematographer and Director of Photography Adam Gofton operating a Canon R6 Mk III camera on a DJI gimbal with a matte box, external monitor, and shotgun microphone, filming a dark grey Lamborghini Super Trofeo race car in a sophisticated, moody West Yorkshire garage workshop. Behind-the-scenes production shot showing professional visual architecture and Macro-to-Motion style.">
       </picture>
@@ -267,7 +272,7 @@ img{max-width:100%;display:block}
     </div>
   </div>
 
-  <script src="/js/gallery.js"></script>
+  <script src="/js/cookie.js"></script>
   <script src="/js/reveal.js"></script>
 </body>
 </html>
