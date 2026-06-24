@@ -230,50 +230,50 @@ window.GALLERY_ROW_PATTERNS = {
 window.CATEGORY_INFO = {
   "automotive": {
     "subtitle": "High-End Automotive Photography &amp; Prestige Vehicle Documentation",
-    "section": "Automotive Photography Services in West Yorkshire",
+    "section": "Automotive Photography Services in Northern Ireland",
     "copy": [
-      "013 Create provides professional photography for the automotive industry, serving Leeds, Huddersfield, and the surrounding regions. Our portfolio includes editorial-style shoots for private commissions, standardised inventory photography for luxury showrooms, and high-detail documentation for specialist vehicle auctions.",
-      "Using industry-leading equipment and advanced post-production techniques, we ensure every curve, texture, and finish is captured with absolute clarity. Whether it\u2019s a modern supercar, a vintage classic, or a commercial fleet, our photography is designed to drive engagement and elevate market presence. Based in West Yorkshire, we are available for location shoots and studio-based projects throughout the UK."
+      "013 Create provides professional photography for the automotive industry, serving Portrush, Belfast and across Northern Ireland. Our portfolio includes editorial-style shoots for private commissions, standardised inventory photography for luxury showrooms, and high-detail documentation for specialist vehicle auctions.",
+      "Using industry-leading equipment and advanced post-production techniques, we ensure every curve, texture, and finish is captured with absolute clarity. Whether it\u2019s a modern supercar, a vintage classic, or a commercial fleet, our photography is designed to drive engagement and elevate market presence. Based in Portrush, Northern Ireland, we are available for location shoots and studio-based projects throughout the UK."
     ]
   },
   "hotel-interiors": {
     "subtitle": "Luxury Hospitality Media &amp; Bespoke Architectural Photography",
-    "section": "Specialist Exterior &amp; Property Photography in West Yorkshire",
+    "section": "Specialist Exterior &amp; Property Photography in Northern Ireland",
     "copy": [
-      "013 Create provides professional architectural photography for the hospitality and real estate sectors across Leeds, Huddersfield, and the North of England. Our portfolio encompasses luxury hotel exteriors, commercial property showcases, and high-end residential documentation designed for editorial and marketing use.",
-      "By utilising advanced perspective control and precision post-production, we ensure that every structure is presented with vertical accuracy and natural tonal balance. Whether it is a heritage hotel or a modern commercial development, our photography focuses on the intersection of light and form to create compelling visual narratives. Based in West Yorkshire, 013 Create is available for on-site commissions for architects, developers, and hospitality brands throughout the UK."
+      "013 Create provides professional architectural photography for the hospitality and real estate sectors across Belfast, the Causeway Coast and Northern Ireland. Our portfolio encompasses luxury hotel exteriors, commercial property showcases, and high-end residential documentation designed for editorial and marketing use.",
+      "By utilising advanced perspective control and precision post-production, we ensure that every structure is presented with vertical accuracy and natural tonal balance. Whether it is a heritage hotel or a modern commercial development, our photography focuses on the intersection of light and form to create compelling visual narratives. Based in Portrush, Northern Ireland, 013 Create is available for on-site commissions for architects, developers, and hospitality brands throughout the UK."
     ]
   },
   "food-beverage": {
     "subtitle": "Stylised Visuals for the Hospitality Sector",
     "section": "Commercial Food &amp; Beverage Photography | 013 Create",
     "copy": [
-      "013 Create specialises in food and drink photography across Leeds, Huddersfield, and the North of England, offering high-end culinary imagery and beverage branding for restaurants, artisanal producers, and the hospitality sector \u2014 focusing on texture, colour, and composition.",
+      "013 Create specialises in food and drink photography across Belfast, the Causeway Coast and Northern Ireland, offering high-end culinary imagery and beverage branding for restaurants, artisanal producers, and the hospitality sector \u2014 focusing on texture, colour, and composition.",
       "Employing precision lighting and bespoke food styling, our work covers editorial menu content, commercial packaging, and social media assets. From Michelin-starred menus to independent craft breweries, 013 Create offers on-site culinary photography and studio-based product shoots customised for hospitality industry needs."
     ]
   },
   "events": {
     "subtitle": "Commercial Event Photography &amp; Luxury Brand Activation Coverage",
-    "section": "Professional Event Photographer in West Yorkshire",
+    "section": "Professional Event Photographer in Northern Ireland",
     "copy": [
-      "013 Create specialises in event photography across Leeds, Huddersfield, and northern England, offering comprehensive documentation for corporate conferences, luxury brand launches, and public activations. Our approach emphasises capturing both large-scale event moments and authentic candid interactions.",
-      "Discreet, professional coverage ensures keynote speakers, branding details, and key deliverables are documented for PR, social media, and marketing purposes. Based in West Yorkshire, we accept commissions ranging from intimate gallery openings to multi-day commercial summits across the UK."
+      "013 Create specialises in event photography across Belfast, Coleraine and Northern Ireland, offering comprehensive documentation for corporate conferences, luxury brand launches, and public activations. Our approach emphasises capturing both large-scale event moments and authentic candid interactions.",
+      "Discreet, professional coverage ensures keynote speakers, branding details, and key deliverables are documented for PR, social media, and marketing purposes. Based in Portrush, Northern Ireland, we accept commissions ranging from intimate gallery openings to multi-day commercial summits across the UK."
     ]
   },
   "portrait-fashion": {
     "subtitle": "Editorial Portraiture &amp; High-End Fashion Media Production",
-    "section": "Portrait &amp; Fashion Photography West Yorkshire",
+    "section": "Portrait &amp; Fashion Photography Northern Ireland",
     "copy": [
-      "Professional portraiture and fashion media production for brands, designers, and creative professionals across Leeds, Huddersfield, and the North of England. We specialise in high-end editorial fashion shoots, commercial lookbooks, and bespoke model portfolios, focusing on cinematic lighting and authentic storytelling.",
-      "Whether delivering studio-based campaigns or environmental portraits on location, our work is defined by technical excellence. Based in West Yorkshire, 013 Create provides specialised photography services designed to elevate brand identity and creative presence for clients throughout the UK."
+      "Professional portraiture and fashion media production for brands, designers, and creative professionals across Belfast, the Causeway Coast and Northern Ireland. We specialise in high-end editorial fashion shoots, commercial lookbooks, and bespoke model portfolios, focusing on cinematic lighting and authentic storytelling.",
+      "Whether delivering studio-based campaigns or environmental portraits on location, our work is defined by technical excellence. Based in Portrush, Northern Ireland, 013 Create provides specialised photography services designed to elevate brand identity and creative presence for clients throughout the UK."
     ]
   },
   "sports": {
     "subtitle": "Action Sports Photography &amp; Dynamic Athlete Content Creation",
-    "section": "Action Sports &amp; Athlete Photography West Yorkshire",
+    "section": "Action Sports &amp; Athlete Photography Northern Ireland",
     "copy": [
-      "Professional sports media and high-performance athlete photography serving Leeds, Huddersfield, and the wider North of England. We specialise in capturing the raw energy and technical precision of action sports, providing stills for commercial branding, editorial features, and professional athlete portfolios.",
-      "From motorsports and field athletics to action sports campaigns, our work focuses on dynamic composition. Based in West Yorkshire, 013 Create delivers elite visual assets for clubs, individual athletes, and sports brands, ensuring every decisive moment is documented with clarity and impact for marketing and PR use across the UK."
+      "Professional sports media and high-performance athlete photography serving Belfast, Coleraine and across Northern Ireland. We specialise in capturing the raw energy and technical precision of action sports, providing stills for commercial branding, editorial features, and professional athlete portfolios.",
+      "From motorsports and field athletics to action sports campaigns, our work focuses on dynamic composition. Based in Portrush, Northern Ireland, 013 Create delivers elite visual assets for clubs, individual athletes, and sports brands, ensuring every decisive moment is documented with clarity and impact for marketing and PR use across the UK."
     ]
   }
 };
@@ -319,23 +319,23 @@ window.GALLERY_POSITIONS = {
 
    EXAMPLE:
      "automotive": {
-       "1.jpg": "Red Ferrari 488 GTB detail shot — carbon fibre wing mirror, West Yorkshire countryside background",
-       "2.jpg": "Porsche 911 GT3 RS in Lava Orange at golden hour, Yorkshire Dales — 013Create automotive photography"
+       "1.jpg": "Red Ferrari 488 GTB detail shot — carbon fibre wing mirror, countryside background",
+       "2.jpg": "Porsche 911 GT3 RS in Lava Orange at golden hour, open moorland — 013Create automotive photography"
      }
    ───────────────────────────────────────────────────────────────── */
 window.GALLERY_ALT_TEXT = {
   "automotive": {
     "1.jpg": "Ferrari 599XX widebody in red — night urban shoot with light trails, editorial supercar photography UK by 013Create",
-    "2.jpg": "Ferrari 599XX GTO in Rosso Corsa at golden hour in open Yorkshire field — prestige supercar photography UK",
+    "2.jpg": "Ferrari 599XX GTO in Rosso Corsa at golden hour in open upland field — prestige supercar photography UK",
     "3.jpg": "Ferrari 599XX GTO rear three-quarter — atmospheric smoky carpark, prestige automotive photography UK by 013Create",
     "4.jpg": "Audi Sport Quattro S1 Group B rally car — forest stage action with dust cloud, classic motorsport photography UK",
     "5.jpg": "Audi Sport Quattro S1 Group B rally car — golden hour forest stage with dust and sunbeams, motorsport photography",
     "6.jpg": "Lamborghini Huracán STO carbon fibre race car — moody architectural interior setting, prestige supercar photography UK",
     "7.jpg": "Lamborghini Huracán STO side profile — dark concrete architectural environment, luxury supercar photography UK",
     "8.jpg": "Lamborghini Huracán STO rear view — stormy architectural backdrop, carbon fibre detail, racing photography UK",
-    "9.jpg": "Porsche 911 GT3 RS rear view at sunset — Yorkshire Dales moorland road, prestige car photography by 013Create",
-    "10.jpg": "Porsche 911 GT3 RS in black at golden hour — puddle reflection, Yorkshire Dales dry-stone wall, supercar photography",
-    "11.jpg": "Porsche 911 GT3 RS front three-quarter at sunrise — Yorkshire moorland road, prestige automotive photography UK",
+    "9.jpg": "Porsche 911 GT3 RS rear view at sunset — open moorland road, prestige car photography by 013Create",
+    "10.jpg": "Porsche 911 GT3 RS in black at golden hour — puddle reflection, dry-stone wall, supercar photography",
+    "11.jpg": "Porsche 911 GT3 RS front three-quarter at sunrise — open moorland road, prestige automotive photography UK",
     "12.jpg": "Female model leaning on red Ferrari-badged Fiat 500 — Caffe Grande Piccolino, lifestyle automotive photography",
     "13.jpg": "Female model driving vintage red Fiat 500 interior — city rooftop, lifestyle automotive portrait photography",
     "14.jpg": "Female model with red Ferrari Fiat 500 on rooftop — city skyscrapers background, lifestyle automotive shoot",
@@ -345,9 +345,9 @@ window.GALLERY_ALT_TEXT = {
     "18.jpg": "Red Bull BMX athlete performing wall ride above red Peugeot 208 — action sports brand campaign photography",
     "19.jpg": "Red Bull BMX athlete beside red Peugeot 208 at urban skate park — lifestyle commercial photography UK",
     "20.jpg": "Silver Peugeot 508 at solar-canopy EV charging station — electric vehicle commercial photography UK",
-    "21.jpg": "Land Rover Defender Talos edition in white — rose-gold dusk on Yorkshire moorland, luxury 4x4 photography UK",
+    "21.jpg": "Land Rover Defender Talos edition in white — rose-gold dusk on open moorland, luxury 4x4 photography UK",
     "22.jpg": "Land Rover Defender Talos in white — ornate gate exterior setting, prestige SUV photography UK by 013Create",
-    "23.jpg": "Land Rover Defender Talos front-wheel detail — Yorkshire countryside close-up, luxury SUV automotive photography",
+    "23.jpg": "Land Rover Defender Talos front-wheel detail — countryside close-up, luxury SUV automotive photography",
     "24.jpg": "Red Bull BMX athlete wall-riding above red Peugeot 208 — commercial sports-lifestyle brand photography UK",
     "25.jpg": "Red Bull BMX rider relaxing beside red Peugeot 208 at skate park — commercial lifestyle automotive photography",
     "26.jpg": "Silver Peugeot 508 under solar canopy — EV charging station, Wingrove Peugeot commercial photography UK",
@@ -355,12 +355,12 @@ window.GALLERY_ALT_TEXT = {
     "28.jpg": "DS 9 luxury saloon blue side profile — foggy woodland road, editorial automotive photography UK by 013Create",
     "29.jpg": "DS 9 luxury interior — premium white quilted leather, central infotainment, commercial automotive photography",
     "30.jpg": "Sage green DS 3 Crossback with woman and dog — woodland lane, Wingrove lifestyle automotive photography UK",
-    "31.jpg": "Red DS 3 Crossback — misty Yorkshire hillside with white fence, editorial automotive photography UK",
+    "31.jpg": "Red DS 3 Crossback — misty hillside with white fence, editorial automotive photography UK",
     "32.jpg": "Citroën C5 Aircross interior detail — steering wheel and touchscreen, commercial automotive photography UK",
     "33.jpg": "White Ford RS200 Talos edition on runway — classic Group B rally car documentation photography UK",
     "34.jpg": "White Ford RS200 Talos front arch detail — period alloys, classic Group B motorsport photography UK",
     "35.jpg": "White Ford RS200 Talos rear three-quarter on runway — classic rally car photography UK by 013Create",
-    "36.jpg": "Porsche 911 GT2 RS in black — moody mist over Yorkshire moors, prestige supercar photography UK",
+    "36.jpg": "Porsche 911 GT2 RS in black — moody mist over open moorland, prestige supercar photography UK",
     "37.jpg": "Porsche 911 GT2 RS carbon fibre rear with gold BBS wheels — close-up garage detail, automotive photography UK",
     "38.jpg": "Porsche 911 GT2 RS under blue-violet neon in dark hangar — alongside Ford RS200, atmospheric automotive photography",
     "39.jpg": "McLaren MP4/4 Formula 1 Marlboro car — dramatic concrete architectural setting, classic F1 photography UK",
@@ -398,7 +398,7 @@ window.GALLERY_ALT_TEXT = {
     "20.jpg": "Contemporary A-frame woodland lodge exterior at golden hour — luxury holiday accommodation photography UK",
     "21.jpg": "Luxury A-frame woodland lodge at night — illuminated timber exterior with hot tub under stars",
     "22.jpg": "Luxury woodland lodge with hot tub at night — illuminated exterior under starry sky, holiday property photography",
-    "23.jpg": "Luxury spa outdoor plunge pool at sunrise — snowy Yorkshire countryside panorama, hotel spa photography UK",
+    "23.jpg": "Luxury spa outdoor plunge pool at sunrise — snowy countryside panorama, hotel spa photography UK",
     "24.jpg": "Luxury holiday cottage sitting room — blue velvet chair, wood burner, exposed timber beams",
     "25.jpg": "Luxury barn conversion interior — open-plan with glazed vaulted roof and stone walls, holiday property photography",
     "26.jpg": "Luxury holiday cottage bedroom — vaulted ceiling with golden globe pendant light, property photography UK",
@@ -485,7 +485,7 @@ window.GALLERY_ALT_TEXT = {
     "10.jpg": "Female model leaning on red Ferrari Fiat 500 — Caffe Grande Piccolino, lifestyle fashion photography UK",
     "11.jpg": "Female athlete stretching beside Ford Ranger Raptor — fitness lifestyle photography UK by 013Create",
     "12.jpg": "Talos-branded tumbler held over Ford Ranger Raptor Talos centre console — lifestyle product photography UK",
-    "13.jpg": "Female model adjusting sunglasses in rearview mirror — DS3, Leeds city skyline, automotive lifestyle portrait",
+    "13.jpg": "Female model adjusting sunglasses in rearview mirror — DS3, city skyline, automotive lifestyle portrait",
     "14.jpg": "Male fabricator working on automotive carbon panel in workshop — professional trades portrait photography UK",
     "15.jpg": "Metal fabricator grinding with sparks — dramatic action portrait, professional trades photography UK",
     "16.jpg": "Contemplative man portrait — black and white with colourful clothing rack background, fashion portrait UK",

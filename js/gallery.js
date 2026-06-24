@@ -36,12 +36,12 @@
     var labels = {
       'automotive':       'Prestige automotive photography by Adam Gofton, 013Create — specialist car photographer UK',
       'hotel-interiors':  'Luxury hotel and interiors photography by Adam Gofton, 013Create — hospitality photography UK',
-      'food-beverage':    'Commercial food and beverage photography by Adam Gofton, 013Create — culinary photography West Yorkshire',
+      'food-beverage':    'Commercial food and beverage photography by Adam Gofton, 013Create — culinary photography Northern Ireland',
       'events':           'Professional event photography by Adam Gofton, 013Create — corporate and brand event photographer UK',
-      'portrait-fashion': 'Editorial portrait and fashion photography by Adam Gofton, 013Create — fashion photographer West Yorkshire',
+      'portrait-fashion': 'Editorial portrait and fashion photography by Adam Gofton, 013Create — fashion photographer Northern Ireland',
       'sports':           'Action sports photography by Adam Gofton, 013Create — athlete and sports photographer UK'
     };
-    return (labels[cat] || '013Create photography by Adam Gofton — West Yorkshire UK') + ', image ' + (n + 1);
+    return (labels[cat] || '013Create photography by Adam Gofton — Northern Ireland UK') + ', image ' + (n + 1);
   }
 
   function buildRows(images, pattern) {
