@@ -5,6 +5,7 @@
   var currentImages = [];
   var currentIdx = 0;
   var _loading = {};
+  var _descLoading = {};
 
   function loadCatData(cat, cb) {
     if ((window.GALLERY_DATA || {})[cat]) { cb(); return; }
@@ -59,9 +60,22 @@
   }
 
   function renderCategoryDesc(cat) {
-    var info = (window.CATEGORY_INFO || {})[cat];
     var el = document.getElementById('catDesc');
-    if (!el || !info) return;
+    if (!el) return;
+    var info = (window.CATEGORY_INFO || {})[cat];
+    if (!info) {
+      // Category info lives in /js/gallery-data-<cat>.js. For categories whose
+      // GALLERY_DATA is inlined in the page for fast LCP (e.g. automotive),
+      // loadCatData never fetches that file, so CATEGORY_INFO is absent here.
+      // Lazy-load it once, then re-render the description.
+      if (_descLoading[cat]) return;
+      _descLoading[cat] = true;
+      var s = document.createElement('script');
+      s.src = '/js/gallery-data-' + cat + '.js';
+      s.onload = s.onerror = function () { renderCategoryDesc(cat); };
+      document.head.appendChild(s);
+      return;
+    }
     el.innerHTML =
       '<h2>' + info.subtitle + '</h2>' +
       info.copy.map(function (p) { return '<p>' + p + '</p>'; }).join('');
