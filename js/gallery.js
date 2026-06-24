@@ -42,7 +42,7 @@
       'portrait-fashion': 'Editorial portrait and fashion photography by Adam Gofton, 013Create — fashion photographer Northern Ireland',
       'sports':           'Action sports photography by Adam Gofton, 013Create — athlete and sports photographer UK'
     };
-    return (labels[cat] || '013Create photography by Adam Gofton — Northern Ireland UK') + ', image ' + (n + 1);
+    return (labels[cat] || '013Create photography by Adam Gofton — Northern Ireland, UK') + ', image ' + (n + 1);
   }
 
   function buildRows(images, pattern) {
